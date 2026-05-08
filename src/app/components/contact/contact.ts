@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, signal } from '@angular/core';
 
 @Component({
   selector: 'app-contact',
@@ -6,4 +6,15 @@ import { Component } from '@angular/core';
   templateUrl: './contact.html',
   styleUrl: './contact.scss',
 })
-export class Contact {}
+export class Contact {
+  displayForm = signal<boolean>(false);
+  number =signal<number>(12123);
+  date = signal<Date>(new Date());
+  object = signal<{ name: string; age: number }>({ name: 'John', age: 30 });
+
+
+  toggleForm() {
+    this.displayForm.set(!this.displayForm());
+  }
+
+}

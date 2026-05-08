@@ -1,1 +1,29 @@
-<p>contact works!</p>
+<div>
+
+
+    <button (click)="toggleForm()">
+        Mostrar Formulario
+    </button>
+
+    <p>Mostrar Form: {{displayForm()}}</p>
+    <p>number : {{number()}}</p>
+    <p>date : {{date()}}</p>
+    <p>object : {{object() }}</p>
+
+    @if(displayForm() === true) {
+    <div>
+        <form>
+            <label for="name">Nombre:</label>
+            <input type="text" id="name" name="name">
+
+            <label for="email">Correo Electrónico:</label>
+            <input type="email" id="email" name="email">
+
+            <label for="message">Mensaje:</label>
+            <textarea id="message" name="message"></textarea>
+
+            <button type="submit">Enviar</button>
+        </form>
+    </div>
+    }
+</div>
