@@ -1,1 +1,32 @@
-<p>services works!</p>
+<section class="services" aria-labelledby="services-title">
+    <header class="services__header">
+        <span class="services__eyebrow">What we offer</span>
+        <h1 id="services-title" class="services__title">Services</h1>
+        <p class="services__lead">
+            This is the services page. Here you can find information about the services we offer.
+        </p>
+    </header>
+
+    <ul class="services__grid" role="list">
+
+    @for (service of services(); track $index) {
+        <app-service 
+            [title]="service.title" 
+            [description]="service.description"
+            [iconPath]="service.iconPath"
+            (serviceSelected)="onServiceSelected($event)"
+            >
+        </app-service>
+        <!-- @for (subService of service.subServices || []; track $index) {
+            <app-service 
+                [title]="subService.title" 
+                [description]="subService.description"
+                [iconPath]="subService.iconPath"
+                (serviceSelected)="onServiceSelected($event)"
+            >
+            </app-service>
+        } -->
+    }
+
+    </ul>
+</section>

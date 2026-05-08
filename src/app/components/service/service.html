@@ -1,0 +1,15 @@
+<li (click)="onClick()" class="card">
+    <div class="card__icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+            stroke-linejoin="round">
+            <path [attr.d]="iconPath()" />
+        </svg>
+    </div>
+    <h2 class="card__title">{{ title() }}</h2>
+    <p class="card__description">{{ description() }}</p>
+</li>
+
+
+@if(title() === 'Service 1') {
+    <h1>Service 1</h1>
+} 
