@@ -1,2 +1,43 @@
-<p>home works!</p>
-EJEMPLO 1
+<form>
+  <div>
+    <label for="name">Name:</label>
+    <input id="name" type="text" [(ngModel)]="name" name="name" />
+  </div>
+  <div>
+    <label for="email">Email:</label>
+    <input id="email" type="email" [(ngModel)]="email" name="email" />
+  </div>
+  <button (click)="saveData()" type="button">
+    @if (id() !== null && id() !== undefined && id() !== '') {
+      Update
+    } @else {
+      Save
+    }
+  </button>
+</form>
+
+<div>
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      @for (customer of customers(); track $index) {
+        <tr>
+          <td>{{ customer.id }}</td>
+          <td>{{ customer.name }}</td>
+          <td>{{ customer.email }}</td>
+          <td>
+            <button (click)="editPersona(customer)">Edit</button>
+            <button (click)="deletePersona(customer.id)">Delete</button>
+          </td>
+        </tr>
+      }
+    </tbody>
+  </table>
+</div>
